@@ -39,3 +39,12 @@ function editModalShow(uuid,jenis,model,deskripsi,harga)
     // $("#modelProyek").val(model);
     // $("#harga").val(harga);
 }
+
+function updateStatus(id)
+{
+    const formData = new FormData();
+    formData.append('uuid', id);
+    formData.append('_method','POST');
+    formData.append('_action','')
+    
+}

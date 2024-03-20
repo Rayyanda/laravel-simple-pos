@@ -129,4 +129,34 @@ class PesananProyekController extends Controller
 
         return view('Pages.proyek.detail_order',['details'=>$orders]);
      }
+
+     /**
+      * edit page
+      @param $uuid
+      */
+
+      public function  edit($uuid)
+      {
+        //model
+        $md_listproyek = new ListProyek();
+
+        //ambil data order
+        $orders = $md_listproyek
+            ->join('customers','customers.customer_uuid','=','list_proyek.customer_uuid')
+            ->join('proyek','proyek.proyek_uuid','=','list_proyek.proyek_uuid')
+            ->where('list_proyek.uuid_list','=',$uuid)
+            ->first();
+
+        return view('Pages.proyek.editlist',['details'=>$orders]);
+      }
+
+      /**
+       * status
+       * 0 => belum dibayar dp
+       * 1 => sudah dibayar dp
+       * 2 => proses
+       * 3 => lunas
+       * 4 => selesai
+       * 5 => dibatalkan
+       */
 }
