@@ -105,7 +105,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <a href="/order/e/{{ $details->uuid_list }}" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                    <a href="/order/e/{{ $details->uuid_list }}" class="btn btn-success {{ $details->status >= 4 ? 'disabled' : '' }} "><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                 </div>
             </div>
         </form>

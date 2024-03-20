@@ -92,7 +92,6 @@ Route::group(["middleware"=>['auth','ceklevel:admin,user']],function () {
         //Route ke halaman  tambah project baru dari pelanggan
         Route::get('/add', [PesananProyekController::class, 'create_page'])->name('tambah_proyek');
 
-
         //Route simpan data project baru dari pelanggan
         Route::post('/store', [PesananProyekController::class, 'store'])->name('simpan_proyek');
 
@@ -103,13 +102,16 @@ Route::group(["middleware"=>['auth','ceklevel:admin,user']],function () {
         Route::get('/e/{id}', [PesananProyekController::class, 'edit'])->name('edit_proyek');
 
         //Route untuk mengirim permintaan edit data Project dari pelanggan
-        Route::put('/update/{id}', [PesananProyekController::class, 'update'])->name('perbarui_proyek');
+        Route::post('/update/{id}', [PesananProyekController::class, 'update'])->name('perbarui_proyek');
 
         //Route untuk hapus data Project  dari pelanggan
         Route::delete('/destroy/{id}', [PesananProyekController::class, 'destroy'])->name('hapus_proyek');
 
         //Route untuk update status proyek
-        Route::put('/status/update/{id}', [PesananProyekController::class, 'update'])->name('ubah_status');
+        Route::get('/status/{status}/{id}', [PesananProyekController::class, 'update_status'])->name('ubah_status');
+
+        //Route untuk riwayat pesanan
+        Route::get('/riwayat',[PesananProyekController::class,"history"])->name('riwayat_proyek');
        
     });
 

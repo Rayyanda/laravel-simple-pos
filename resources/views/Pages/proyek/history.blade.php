@@ -1,12 +1,12 @@
 @extends('Template.sidebar')
-@section('title','Order')
+@section('title','History')
 @section('content')
-<h1 class="mt-4">Order</h1>
+<h1 class="mt-4">History</h1>
 <ol class="breadcrumb mb-4">
     
-    <li class="breadcrumb-item active">Order</li>
+    <li class="breadcrumb-item active">Riwayat Pesanan</li>
 </ol>
-<div class="card shadow mb-2">
+<div class="card">
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
@@ -37,7 +37,7 @@
                             <td>{{ substr($order->deskripsi,0,5) }}...</td>
                             <td>
                                 <a href="/order/{{ $order->uuid_list }}/detail" class="btn btn-sm btn-warning m-1"><i class="fa-solid fa-circle-info"></i></a>
-                                <a href="/order/e/{{ $order->uuid_list }}" class="btn btn-sm btn-success m-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                                
                             </td>
                         </tr>
                     @endforeach

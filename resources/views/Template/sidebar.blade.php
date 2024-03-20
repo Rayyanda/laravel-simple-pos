@@ -72,7 +72,7 @@
                                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-plus"></i></div>
                                                 Tambah Pesanan
                                             </a>
-                                            <a href="/order/history" class="nav-link">
+                                            <a href="/order/riwayat" class="nav-link">
                                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
                                                 Riwayat Pesanan
                                             </a>
