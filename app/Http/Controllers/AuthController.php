@@ -106,4 +106,28 @@ class AuthController extends Controller
 
         return view('Pages.users.update_users',['user'=>$user]);
       }
+
+      /**
+       * update users
+       * @param $uuid
+       */
+      public function update_user(Request $request, $uuid)
+      {
+        $validated = $request->validate([
+          'name'=>'required|min:3|max:100',
+          'email'=>'required|email',//utuk validasi email yang sudah ada di database kecuali data
+          'level' =>'required'
+        ]);
+
+        $user = User::where('user_uuid','=',$uuid)->first(); //mendapatkan data user berdasarkan uuid nya
+
+        $user->update([
+          'name'=>$request->name,
+          'email'=>$request->email,
+          'level'=>$request->level
+        ]);
+
+        return redirect('/admin/users');
+
+      }
 }

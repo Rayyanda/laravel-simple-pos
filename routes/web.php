@@ -49,7 +49,7 @@ Route::group(["middleware"=>['auth','ceklevel:admin']],function (){
         Route::get('/users/{uuid}',[AuthController::class,'get_user'])->name( 'update_data_user'); 
         
         //route simpan perubahan data user
-        Route::put('/users/save/{id}', [AuthController::class, 'simpan_perubahan_user'])->name('simpan_perubahan');
+        Route::post('/users/save/{id}', [AuthController::class, 'update_user'])->name('simpan_perubahan');
     });
 
     Route::group(['prefix'=>'/project/setting'],function(){
